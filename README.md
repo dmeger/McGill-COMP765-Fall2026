@@ -1,26 +1,24 @@
-# McGill COMP 417 Winter 2026 - Intro to Robotics
+# McGill COMP 765 Fall 2026 - World Models for Robotic Decision Making and Control
 
 ## Overview 
 Robotics is the study of physical bodies that can perceive and act in the world, and for computer scientists, the focus is on the algorithms, data structures, models and math that makes a robot intelligent. Even with modern hardware, the real world can easily overwhelm a poor algorithm, so often efficient and scalable use of computation equals intelligence.
 
+In the 2026 version of this course, we will focus on the use of model knowledge to achieve intelligence. This includes a study of the model learning process: how to write down the math and constraints of a physical robot system, the sensors we that allow us to measure the world and their noise, decision making and its relationship to ... our main focus will be so-called ``World Models'', which are learned analogs of the real world that allow us to deliberate about future decisions before we act on the real world. World models are a form of Generative AI, so we will consider modern forms of probabilistic models often used in robotics. Learning world models requires real world data in some form, so we will think about collecting data, learning on or offline, pre-training, fine-tuning and many more interesting and interactive forms of self-improvement.
+
+The course will contain about one third (A) ``classic'' material from math, physics and engineering that puts us on a similar footing, one third (B) modern elements of robot learning theory and one third (C) the very latest and greatest papers in robotic world models, with the final portion presented by students in seminar/discussion format.
+
 ## Pre-Reqs
-- COMP 251, we develop and analyze several complex robotics algorithms that require at least this level of CS algorithmic knowledge.
-- MATH 223, working with the continuous, multi-dimensional information about a robot and its sensors takes place in the language of Linear Alg.
-- (ECSE 321 or COMP 206) because we will build a variety of hands-on software solutions.
+None. This is a top level course where we expect everyone comes in with some background, but no one can cover everything needed to already be an expert in all tech being used in the latest world models. Instead, we will seek a good conversational format where we can learn from each other. Technical portions (A and B above) will be tested by midterms in a self-contained fashion. That is, we will only ask you to know the material that are captured in our own class notes and readings, without asking for significant prior knowledge beyond the basic set of skills every grad level computer scientist should possess. The paper presentations, part C, will be graded based on quality of in-class presentations and a written project report to end the term. There will be no final exam.
 
 ## Topic List
 Please see the [lecture list](Lectures) for details and resources.
 - Kinematic Models
 - Dynamics Models
-- Planning Algorithms
 - Optimal Control
-- Imitation Learning
 - Reinforcement Learning
 - Sensors and Perception
 - State Estimation
 - Map Building
-
-Enrichment topics that will be covered by readings and guest presentors but not testable:
 - Human-robot Interaction
 - Visual navigation
 - Planning under uncertainty
@@ -28,32 +26,26 @@ Enrichment topics that will be covered by readings and guest presentors but not 
 - Physical simulation of complex, contact-rich environments
 
 ## Assessment Plan
-- (k) online quizzes (10%)
-- (5) assignments (40%) 
-- (1) online mid-term exam (10%)
-- (1) in-person final exam  (40%) 
+- (3) assignments (30%) 
+- (2) in class mid-term exams (30%)
+- (1) paper presentation in class (10%)
+- (1) project report (30%)
 
 ## Resources and Materials
 We'll follow a few text books, but material from these will be pointed to and extracted into course notes written by the instructor.
 
 ## Instructor: David Meger
-- Primary contact method: Ed Discussion posts to discuss content, assessments, exams, etc. Mark posts as private for personalized questions. Email is the last resort for connecting with both the instructor and TAs.
+- Primary contact method: Ed Discussions. 
+- Email is the last resort for connecting with both the instructor and TA.
 - Email - david.meger@gmail.com (McGill email accounts are currently being “migrated” and not reliable, sorry!)
 - Office: MC 112N (North Wing, walk through the 100N lobby to find my door)
 
 ## Teaching Assistants (contact first on Ed)
-- Amin Abyaneh
-- Farnoosh Faraji
-- Steve Wen
-- Zhizun (Steven) Wang
+- Valliappan Chidambaram Adaikkappan - valliappan.chidambaramadaikkappa@mail.mcgill.ca 
 
-## Office Hour Schedule. Always in the Robotics Teaching Lab, TR4130 unless noted
-- Dave in-person: Wednesday 2:30-3:30
-- Dave on [Zoom](https://mcgill.zoom.us/j/9225598493): Friday 10am-11am
-- Amin: Wednesday noon-1pm
-- Farnoosh: Friday 1pm-2pm
-- Steven: Thursday 5pm-6pm
-- Steve: Monday 4pm-5pm
+## Office Hour Schedule. At MC 112N
+- Dave in-person: Monday 2:30-3:30
+- Valliappan: TBD
 
 ## Recommended (not required) Textbooks
 - [Craig Introduction to Robotics](https://marsuniversity.github.io/ece387/Introduction-to-Robotics-Craig.pdf)
