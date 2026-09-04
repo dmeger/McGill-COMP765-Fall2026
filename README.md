@@ -12,27 +12,32 @@ None. This is a top level course where we expect everyone comes in with some bac
 
 ## Topic List
 Please see the [lecture list](Lectures) for details and resources.
-- Kinematic Models
-- Dynamics Models
-- Optimal Control
-- Reinforcement Learning
-- Sensors and Perception
-- State Estimation
-- Map Building
-- Human-robot Interaction
-- Visual navigation
-- Planning under uncertainty
-- Safe decision making
-- Physical simulation of complex, contact-rich environments
-
+- Modeling Robots:
+   - Kinematics and Dynamics
+   - Physical simulation of complex, contact-rich environments
+   - Sensors and Perception
+- Computation with Known Models:
+   - Optimal Control
+   - Model Predictive Control
+   - Bayesian Filtering
+   - Planning Under Uncertainty
+- Learning Approaches
+   - Generative AI 
+   - Probabilistic Time Series Models
+   - Reinforcement Learning
+   - Model-based RL
+      - Probabilistic Inference for Learning and Control (PILCO)
+      - Recurrent State Space Models (Planet, Dreamer)
+      - TD-MPC
+        
 ## Assessment Plan
 - (3) assignments (30%) 
-- (2) in class mid-term exams (30%)
+- (2) in class mid-term exams (20%)
 - (1) paper presentation in class (10%)
-- (1) project report (30%)
+- (1) project report (40%)
 
 ## Resources and Materials
-We'll follow a few text books, but material from these will be pointed to and extracted into course notes written by the instructor.
+We'll follow parts of a few text books, but material from these will be pointed to and extracted into course notes written by the instructor.
 
 ## Instructor: David Meger
 - Primary contact method: Ed Discussions. 
@@ -44,7 +49,7 @@ We'll follow a few text books, but material from these will be pointed to and ex
 - Valliappan Chidambaram Adaikkappan - valliappan.chidambaramadaikkappa@mail.mcgill.ca 
 
 ## Office Hour Schedule. At MC 112N
-- Dave in-person: Monday 2:30-3:30
+- Dave in-person: Monday 10-11am
 - Valliappan: TBD
 
 ## Recommended (not required) Textbooks
