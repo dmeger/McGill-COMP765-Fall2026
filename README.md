@@ -48,16 +48,9 @@ We'll follow parts of a few text books, but material from these will be pointed 
 ## Teaching Assistants (contact first on Ed)
 - Valliappan Chidambaram Adaikkappan - valliappan.chidambaramadaikkappa@mail.mcgill.ca 
 
-## Office Hour Schedule. At MC 112N
-- Dave in-person: Monday 10-11am
+## Office Hour Schedule. 
+- Dave in-person: Monday 10-11am, at MC 112N
 - Valliappan: TBD
-
-## Recommended (not required) Textbooks
-- [Craig Introduction to Robotics](https://marsuniversity.github.io/ece387/Introduction-to-Robotics-Craig.pdf)
-- [Lavalle Planning Algorithms](https://lavalle.pl/planning/)
-- [Burgard, Fox and Thrun Probabilistic Robotics](http://www.probabilistic-robotics.org/)
-- [Lynch and Park Modern Robotics: Mechanics, Planning and Control]( https://dl.acm.org/doi/book/10.5555/3165183)
-- [Dudek and Jenkin Computational Priciples of Modern Robotics](https://books.google.ca/books?hl=en&lr=&id=Rc_3EAAAQBAJ&oi=fnd&pg=PP1&dq=info:LlKFBgpKjOUJ:scholar.google.com&ots=VIDL0I_8Az&sig=H1MetxHxAx-IK2o7w4gFe28sTC0&redir_esc=y#v=onepage&q&f=false)
 
 ## Integrity (including AI)
 McGill University values academic integrity. Therefore, all students must understand the meaning and consequences of cheating, plagiarism and other academic offences under the Code of Student Conduct and Disciplinary Procedures.
