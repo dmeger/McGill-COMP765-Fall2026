@@ -149,7 +149,7 @@ Real robots are not linear, as we have discussed previously. The general form fo
 The iLQR and DDP family of methods have some key take-aways that we want to understand in order to contrast with original LQR:
 - By starting with a non-linear true dynamics, it is not possible to exactly relate value across time-steps in a linear fashion.
 - Therefore, computing the cost-to-go requires approximation. These methods do it by picking an order (1st or 2nd) and making best approximations. They are no longer exact!
-- The approximation is made around a reference (guess) motion $u_t$ and computes a small improvement $\del u$.
+- The approximation is made around a reference (guess) motion $u_t$ and computes a small improvement $\delta u$.
 - Experiments on a fairly nice set of systems show nice converging performance, but we must be aware that this is not always the case. Model errors, bad starting guesses for control and numerical issues can and do lead to poor solutions. It is common for one lab member to be the iLQR "wizard" and know the tricks to get optimizers to converge. We are no longer in the nice and easy vanilla setting and there is a lot to learn from trying these methods on even simple looking systems. Get ready for Assignment 1!
 
 An important analysis tool are variational principles that define properties of optimizing solutions. For problems with sufficient structure, these tools can allow direct solution in parametric form, but for arbitrary problems, we must rely on computation.
