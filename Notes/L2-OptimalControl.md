@@ -146,6 +146,12 @@ Our claim is supported!
 
 Real robots are not linear, as we have discussed previously. The general form for dyanmics is $x_t = f(x_{t-1},u_{t})$. We can still use the technique of dynamic programming we applied above to break-down the overall objective into instantaneous and future sum of costs. The derivative will not allow closed-form solution for $u^*$ in almost any case. Taylor expansion around sensible guesses of the parameters is possible, which leads to a method known as [Iterative LQR](https://www.scitepress.org/papers/2004/11439/11439.pdf) (similar [Differential Dynamic Programming by Jacobsen and Mayne](https://www.sciencedirect.com/science/chapter/bookseries/abs/pii/B9780120127108500108). The normal problems of linearization exist; if we choose the wrong linearization point or update our parameters too far from this point, computations lose accuracy.
 
+The iLQR and DDP family of methods have some key take-aways that we want to understand in order to contrast with original LQR:
+- By starting with a non-linear true dynamics, it is not possible to exactly relate value across time-steps in a linear fashion.
+- Therefore, computing the cost-to-go requires approximation. These methods do it by picking an order (1st or 2nd) and making best approximations. They are no longer exact!
+- The approximation is made around a reference (guess) motion $u_t$ and computes a small improvement $\del u$.
+- Experiments on a fairly nice set of systems show nice converging performance, but we must be aware that this is not always the case. Model errors, bad starting guesses for control and numerical issues can and do lead to poor solutions. It is common for one lab member to be the iLQR "wizard" and know the tricks to get optimizers to converge. We are no longer in the nice and easy vanilla setting and there is a lot to learn from trying these methods on even simple looking systems. Get ready for Assignment 1!
+
 An important analysis tool are variational principles that define properties of optimizing solutions. For problems with sufficient structure, these tools can allow direct solution in parametric form, but for arbitrary problems, we must rely on computation.
 
 Therefore, several components and considerations are common:
@@ -153,7 +159,7 @@ Therefore, several components and considerations are common:
 - How to perform control updates including ideas like line searches, conjugate gradients, relative entropy regularization and projected gradients. 
 - How to handle constraints and incorporate them into state trajectories and satisficing controls. Includes concepts such as Lagrange multipliers, dual and slack methods.
 
-We will not dive further into the very large and active area of designing and implementing non-linear optimal control solutions in this introductory portion of the course. As we move to advanced topics, we'll see that today, Deep RL approaches have the potential to be used on the problem, especially when model knowledge is missing or unreliable. However, when we do know aspects of the model well, even a large network with lots of data can be assisted by warm-starting or other guidance from model guidance in some form. More on this to come!
+At several points in the term, research papers will allow us to dive further into the very large and active area of designing and implementing non-linear optimal control solutions. However, more often we'll see that today Deep RL approaches have the potential to be used on the nonlinear control problem, without directly addressing these important technical details especially when model knowledge is missing or unreliable. However, when we do know aspects of the model well, even a large network with lots of data can be assisted by warm-starting or other guidance from model guidance in some form. Overall, the winning position is often (/always) to have a strong knowledge of all available tools, so this is why we start with some optimal control math.
 
 ## Exercizes
 
