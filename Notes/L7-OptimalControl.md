@@ -41,7 +41,7 @@ Instead, iterative Policy Evaluation means starting with an initial guess for $V
 While we now have a way to compute $V^{\pi}(s)$ for every policy, $\pi$, we want to go further and find the optimal behavior policy, ${\pi}^{\*}$, which is defined mathematically as $argmax_{\pi}J(\pi)$. Since Value functions capture portions of the infinite sums in $J$, we can express this optimal policy's value in Equation (2), as:
 
 $$\begin{aligned}
-V^{*}(s) = max_{a}\large[ r(s_t,a) + \gamma \mathbb{E}_{s_{t+1} \sim p(s_{t+1}|s_t,a)} V^{*}(s_{t+1} \large]. 
+V^{*}(s) = max_{a}\large[ r(s_t,a) + \gamma \mathbb{E}_{s_{t+1} \sim p(s_{t+1}|s_t,a)} V^{*}(s_{t+1}) \large]. 
 \end{aligned}$$
 
 Equation (2) is known as the Bellman Optimality Equations. They are equivalent to Equation (1)'s equations when the policy, $\pi$ in $V^{\pi}$ is optimal but have the benefit of being true without knowing the policy! Therefore, they open up our ability to write algorithms that operate purely in the space of Value functions. One of the most famous is called Value Iteration.
