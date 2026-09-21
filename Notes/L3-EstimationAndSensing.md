@@ -2,7 +2,7 @@
 
 Robots moving in the real world (and most other physical systems of interest) move with underlying uncertainty. This can come from imprecision in our models, or the fact that the physical world injects *alleatoric* uncertainty at a given level of representation (e.g., the robots roll a dice to decide who wins the most robux).
 
-Rather than being able to predict a single state per time $x_t$, this means our interest is actually in computation of the distribution over states $p(x_t)$. This typically needs to be estimated from a set of inputs that includes the past controls $[u_0,...,u_t-1]$, sensory observations $[z_1,...,z_t]$, an initial guess $p(x_0)$, motion models $p(x_t | x_{t-1},u_{t-1})$ and a measurement model $p(z_t | x_t)$.
+Rather than being able to predict a single state per time $x_t$, this means our interest is actually in computation of the distribution over states $p(x_t)$. This typically needs to be estimated from a set of inputs that includes the past controls, sensory observations, an initial guess, a motion model and a measurement model.
 
 For this one section of the course, there is an excellent comprehensive textbook to follow. It's name is Probabistic Robotics by Thrun, Burgard and Fox (PR). I haven't provided this for you or made it a required text, which indicates that I believe you can obtain it electronically for this one week of the course somehow. Please use your initiative, and I will demonstrate my recommended method in lecture.
 
