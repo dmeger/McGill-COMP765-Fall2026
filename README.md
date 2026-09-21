@@ -50,7 +50,7 @@ We'll follow parts of a few text books, but material from these will be pointed 
 
 ## Office Hour Schedule. 
 - Dave in-person: Monday 10-11am, at MC 112N
-- Valliappan: TBD
+- Valliappan: Friday 11am-noon, online on [Zoom](https://mcgill.zoom.us/j/81017528920?pwd=KpDhIWuPcz6dtxRjC59qnBVpDLe2Yb.1)
 
 ## Integrity (including AI)
 McGill University values academic integrity. Therefore, all students must understand the meaning and consequences of cheating, plagiarism and other academic offences under the Code of Student Conduct and Disciplinary Procedures.
