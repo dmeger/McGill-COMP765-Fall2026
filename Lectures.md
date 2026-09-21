@@ -4,7 +4,7 @@
 | --- | --- | --- | 
 | Aug 31 | Introduction | [Modeling Notes](Notes/L1-Intro-Robot-Models.md) |
 | Sept 14 | Optimal Control | [Optimal Control Notes](Notes/L2-OptimalControl.md)  |
-| Sept 21 | Sensors and Filtering | |
+| Sept 21 | Sensors and Filtering | [Sensors and Filtering Notes](Notes/L3-EstimationAndSensing.md) |
 | Sept 28 | Midterm 1 and Decision Making Under Uncertainty | |
 | Oct 5 | <span style="color:red">No class - Quebec Elections</span> |  |
 | Oct 12 | <span style="color:red">No class - Reading Week</span> |  |
