@@ -2,7 +2,7 @@
 
 Robots moving in the real world (and most other physical systems of interest) move with underlying uncertainty. This can come from imprecision in our models, or the fact that the physical world injects *alleatoric* uncertainty at a given level of representation (e.g., the robots roll a dice to decide who wins the most robux).
 
-Rather than being able to predict a single state per time $x_t$, this means our interest is actually in computation of the distribution over states $p(x_t)$. This typically needs to be estimated from a set of inputs that includes the past controls $[u_0,...,u_t-1]$, sensory observations $[z_1,...,z_t]$, an initial guess $p(x_0)$, motion models $p(x_t|x_{t-1},u_{t-1})$ and a measurement model $p(z_t|x_t)$.
+Rather than being able to predict a single state per time $x_t$, this means our interest is actually in computation of the distribution over states $p(x_t)$. This typically needs to be estimated from a set of inputs that includes the past controls $[u_0,...,u_t-1]$, sensory observations $[z_1,...,z_t]$, an initial guess $p(x_0)$, motion models $p(x_t | x_{t-1},u_{t-1})$ and a measurement model $p(z_t | x_t)$.
 
 For this one section of the course, there is an excellent comprehensive textbook to follow. It's name is Probabistic Robotics by Thrun, Burgard and Fox (PR). I haven't provided this for you or made it a required text, which indicates that I believe you can obtain it electronically for this one week of the course somehow. Please use your initiative, and I will demonstrate my recommended method in lecture.
 
@@ -42,6 +42,16 @@ Particle filter derivation: Understand the point-based representation of the dis
 
 (E3.2) Suppose a robot has two sensors that follow models $z^1 = h^1(x)$ and $z^2 = h^2(x)$ and both take a reading at every time step. Does this setup still allow us to derive the Bayes Filter? What would the expressions look like?
 
-(E3.3) We have claimed that $p(z|x)\overline{bel}(x)$ is Gaussian if both terms are, and shown the results. Verify this by sampling many values of $x$ and plotting the resulting distribution or fitting a Gaussian to the resulting samples. This can also be done for the motion integration step that computes $\overline{bel}(x)$.
+(E3.3) We have claimed that:
+
+$$\begin{aligned}
+p(z|x)\overline{bel}(x)
+\end{aligned}$$ 
+
+is Gaussian if both terms are, and shown the results. Verify this by sampling many values of $x$ and plotting the resulting distribution or fitting a Gaussian to the resulting samples. This can also be done for the motion integration step that computes 
+
+$$\begin{aligned}
+\overline{bel}(x)
+\end{aligned}$$
 
 (E3.4) Verify the Importance Sampling lemma by coding some concrete $f(x)$ and $g(x)$ distribution functions, sampling from $g(x)$ and computing $f(x)$ with IS correction. When is $f(x)$ restored accurately? How does the magnitude of difference between the functions impact your results? How many samples are needed for an accurate estimate?
