@@ -10,7 +10,11 @@ These notes will specify a list of topics that we want to cover out of the PR te
 - Section 1.3, motivation and first instance of the 3 doors example
 - Within Chapter 2, much of the material can be useful for those new to robotics, but Section 2.4.3 is the key math that we will do in lecture and is therefore mainly testable.
 - Within Chapter 3, we will follow the basics up to the intuition of the derivation of Kalman filters in 3.2.4 and the introduction of EKFs in 3.2.1 and 3.2.2. We will not cover the EKF derivation or the rest of the chapter from here.
-- Within Chapter 4, we will lightly cover both the Histogram and Particle filters.
+- Within Chapter 4:
+   - Discrete (Histogram) filter material includes 4.1.1 and 4.1.2 (but not the rest of 4.1 about decomposing states)
+   - Particle filter material includes 4.2.1, 4.2.2 and 4.2.3. Section 4.2.4 is really useful for you to understand the above in more detail, but is not strictly testable in the course. 
+   - 4.3 is a helpful summary, but just FYI/context.
+
 
 ## Overall Key Learning Outcomes:
 
