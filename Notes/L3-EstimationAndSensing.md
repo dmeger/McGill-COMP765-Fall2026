@@ -34,7 +34,29 @@ Kalman filter derivation: Understand the setup with Gaussian probability terms i
 
 Particle filter derivation: Understand the point-based representation of the distribution. The importance sampling procedure and its mapping on to the PF algorithm.
 
-## Exercizes
+## Bonus Research Topic: Decision Making Under Uncertainty
+
+The tools above give us a selection of useful ways to estimate the belief over a robot's state. We picked the form of belief $bel(x_t)$ to be a distribution over the current state at time $t$ specifically so it can be informative for immediate decision making. It's very practically important to turn this belief into a decision, but the general problem of making optimal decisions in light of model errors, learning and varying objectives is an open research problems. We will not cover this area fully, but here are a few of the key considerations and some of the existing answers:
+
+### Extracting a single state
+
+The most straightforward way to make decisions after computing $bel(x_t)$ is to locate one representative state, ideally one that is likely (the most likely?) to occur. This single state summarizes the distribution and allows for the use of control solutions that require a single state as input (e.g., controllers of the forms $u={\pi}(x)$, $a=-Kx$, etc.) For Gaussian beliefs we have the best chances. The mean ${\mu}_t$ is the most likely single state due to the unimodal nature of Gaussians. All else being equal, this is a good choice for the Kalman filtering case.
+
+Selecting a single state from the Particle or Histogram filters is more complicated. After normalization, we have washed away the weights of particles and represent density by numerical repetition, so even the weight fields may not be informative. An interesting idea is to sample, $x_{sample} \sim bel(x_t)$, such that the state we use for control is drawn fairly from the belief distribution. The expectation of our sampled variable will match the expectation of $bel(x_t)$. Will the sampled point be a highly likely state or not? If we have resampled correctly, we will be selecting the particle states in exactly proportion to their likelihood within the belief. Essentially, the less likely the particle, the less likely we are to select it, in corresponding proportion. So, this is an OK way to proceed, if we are willing to accept some extra variance from sampling. We are usually not willing, and so we might try an aggregation technique.
+
+Option 1: Compute the expectation $x_{exp} = E_{bel(x_t)}[x_t]$. For an underlying Gaussian (or unimodal) distribution, this gives a good answer, equivalent to the case of Kalman filtering. What about more complex distributions? Does $bel(x_{exp})$ have to be high? Sadly the answer is no for any distribution that happens to have a low value at its expected value. A simple mixture of two Gaussian modes with equal weight is an example. The point right in between the two modes can have very low likelihood.
+
+Option 2: Compute the most likely state $x_{maxbel} = argmax_{x_t} bel(x_t)$. This requires more computation in general, as for each state candidate we must aggregate over all (or some local approximation) particles and assess their contribution. This procedure is known as density estimation, and we'll have to carry it out for a range of options, taking the max over our candidates. With time and compute to spare, this is a reasonable option that is sometimes used in practice.
+
+### Control for the whole distribution
+
+Rather than sticking with control methods that assumed a single deterministic trajectory, one can modify the control objective to make decisions based on the full computed belief distribution. The textbook describes an aspirational, but very computationally expensive solution known as the Partially Observable Markov Decision Process (POMDP), which is primarily a good thought experiment except in very special cases where we're willing to spend extensive compute even on a tiny problem. Another special case is the combination of LQR control with a stochastic system that fits the Kalman filtering assumptions. For this case, it can be shown that the expected sum of quadratic costs is minimized by applying LQR to the expected states (means) determined by running a Kalman filter. The proof extends the use of linearity common to both LQR and KF reasoning. Geometrically, placing the mode of our Gaussian belief at the minimum of our quadratic cost leads to the minimum expected value - any offset will fairly clearly lead to higher expected cost.
+
+In some cases, we want our decision making to be more sensitive to the uncertainty computed in the filter. This can be due to having a desired robot behavior in mind, and it is often an aspect of learning (improved stability, encourage data collection, etc.) In these cases, one can experiment with costs beyond the simple quadratic and perform some related math to analyse the interaction of each cost with the Gaussian belief, exploring the outcomes on exploration and exploitation. A good example is the PILCO method we will look at shortly [PILCO](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6654139).
+
+Two important topics in this area that gets beyond the scope of these notes are: (1) risk-aware control and (2) active learning for model learning. I hope to revisit each either in later notes or during our paper readings.
+
+## Exercises
 
 (E3.1) (a) Write out the linear models for a robot made up of a "point-and-shoot" motion on the (x,y) plane. Its state is a position (x,y) and its control is a velocity vector (${\Delta}x,{\Delta}y$). It senses only vertically, as the distance to the x-axis ($z=y+noise$). Add the needed noise variance terms.
 
