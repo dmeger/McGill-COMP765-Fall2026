@@ -101,7 +101,43 @@ $$\begin{aligned}
 \sim \Sigma}_s \mu(s) {\Sigma}_a {\nabla}{\pi}_{\theta}(a | s) {q}_{\pi}(s,a)
 \end{aligned}$$
 
+These lines hold a few manipulations that push the gradient within the sum and address $\nabla q$ term that appears when applying the chain rule. The proof in Appendix 1 of the [PGT paper](https://proceedings.neurips.cc/paper_files/paper/1999/file/464d828b85b0bed98e80ade0a5c43b0f-Paper.pdf) is helpful reading. While it won't be pleasant to compute $\mu(s)$ exactly for every policy we consider, this result points to sampling as a good candidate for computation, since running the policy $\pi$ live on the system can bring us states that are sampled from $\mu$. This suggests an update like:
 
+$$\begin{aligned}
+= \mathbb{E}_{\pi} {\Sigma}_a {\nabla}{\pi}_{\theta}(a | S_t) {q}_{\pi}(S_t,a)
+\end{aligned}$$
+
+for samples $S_t$ drawn using the policy. Notably, we still have to compute a sum over all actions in this update, which is impractical for continuous action spaces. This leads us towards our actual practical methods.
+
+### Example PGT Method 1: REINFORCE
+
+The exact idea above, when Monte-Carlo returns are used to estimate $q$ is called REINFORCE. The updates are:
+
+$$\begin{aligned}
+\nabla J \sim \mathbb{E}_{\pi} {\Sigma}_a {\pi}_{\theta}(a|S_t) {q}_{\pi}(S_t,a) \frac{{\nabla}{\pi}_{\theta}(a | S_t)}{{\pi}_{\theta}(a|S_t)}\\
+= \mathbb{E}_{\pi} {q}_{\pi}(S_t,A_t) \frac{{\nabla}{\pi}_{\theta}(A_t | S_t)}{{\pi}_{\theta}(S_t,A_t)}\\
+= \mathbb{E}_{\pi} G_t \frac{{\nabla}{\pi}_{\theta}(A_t | S_t)}{{\pi}_{\theta}(S_t,A_t)}
+\end{aligned}$$
+
+where $G_t$ is the Monte-Carlo return and the capitalized variables represent samples of states and actions. This gradient can be directly used to update the policy parameters, but it happens to have a high variance in practice due to the use of the full return.
+
+### Example PGT Method 2: Actor Critic
+
+An updated method using the idea of TD bootstrapping is idea of maintaining a Q function, updated in the usual online RL fasion:
+
+$$\begin{aligned}
+Q(s,a) \sim r + \gamma Q'(s',a')
+\end{aligned}$$
+
+and using this as the estimate to update the policy under PGT. The Actor Critic (AC) update is:
+
+$$\begin{aligned}
+\nabla J = Q(S_t,A_t) \nabla {\pi}(A_t|S_t)
+\end{aligned}$$
+
+This method is used frequently in low dimensional RL for continuous problems and is also the primary basis for most Deep RL methods that can be used for robotics. We will see its heavy use in Wold Model learning approaches.
+
+## Conclusion
 
 This concludes our exceptionally brief tour through MDP modeling and RL. It is intended as a companion to the world modeling content that we will beging in the next weeks, sufficient to help you understand the terminology and basic algorithms that will be pair with world model learning to form integrated learning and control systems.
 
