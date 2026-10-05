@@ -94,10 +94,11 @@ For more naturally robotics problems with both continous states and actions, non
 
 ### The Policy Gradient Theorem
 
-The main element of the previous methods that must be replaced is the ability to implicity extract a policy by maximization over Q. Instead, the Policy Gradients (PG) approach uses calculus to find improvements on an explicit parameterized policy function ${\pi}_{\theta}(a | s)$. This begins by manipulating the definition of the policy value function:
+The main element of the previous methods that must be replaced is the ability to implicity extract a policy by maximization over Q. Instead, the Policy Gradients (PG) approach uses calculus to find improvements on an explicit parameterized policy function ${\pi}_{\theta}(a \| s)$. This begins by manipulating the definition of the policy value function:
 
 $$\begin{aligned}
-\grad v_{\pi}(s) = \grad \large[ {\Sigma}_a {\pi}_{\theta}(a | s) {q}_{\pi}(s,a)\large]
+\nabla v_{\pi}(s) = \nabla \large[ {\Sigma}_a {\pi}_{\theta}(a | s) {q}_{\pi}(s,a)\large]\\ 
+\sim \Sigma}_s \mu(s) {\Sigma}_a {\nabla}{\pi}_{\theta}(a | s) {q}_{\pi}(s,a)
 \end{aligned}$$
 
 
