@@ -114,9 +114,11 @@ for samples $S_t$ drawn using the policy. Notably, we still have to compute a su
 The exact idea above, when Monte-Carlo returns are used to estimate $q$ is called REINFORCE. The updates are:
 
 $$\begin{aligned}
+{% raw %}
 {\nabla} J \sim \mathbb{E}_{\pi} {\Sigma}_a {\pi}_{\theta}(a|S_t) {q}_{\pi}(S_t,a) \frac{{\nabla}{\pi}_{\theta}(a | S_t)}{{\pi}_{\theta}(a|S_t)}\\
 = \mathbb{E}_{\pi} {q}_{\pi}(S_t,A_t) \frac{{\nabla}{\pi}_{\theta}(A_t | S_t)}{{\pi}_{\theta}(S_t,A_t)}\\
 = \mathbb{E}_{\pi} G_t \frac{{\nabla}{\pi}_{\theta}(A_t | S_t)}{{\pi}_{\theta}(S_t,A_t)}
+{% endraw %}
 \end{aligned}$$
 
 where $G_t$ is the Monte-Carlo return and the capitalized variables represent samples of states and actions. This gradient can be directly used to update the policy parameters, but it happens to have a high variance in practice due to the use of the full return.
