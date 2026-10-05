@@ -84,6 +84,24 @@ Q^{*}(s,a) &=&r(s,a) + \gamma  max_{a'} \mathbb{E}_{s_{t+1} \sim p(s_{t+1}|s,a)}
 
 Equation (4) is the basis of our next method, Q-Learning. We once again intitialize a $Q(s,a)$ vector at random (zeros?) and then proceed to update, this time from the data we've collected from the system. Every time we obtain a tuple $(s,a,r,s')$, we run the update to the $Q(s,a)$ suggested in Equation (4): $Q(s,a) = r(s,a) + \gamma  max_{a'}Q(s',a')$. Note that we miss the expectation from this line, as that's not available to us without model knowledge. But, the data we used to do the update included $s'$, which is a valid sample from the probability over which we wanted the expectation, $p(s_{t+1}\|s,a)$. Therefore, doing this update repeatedly on observed data ends up being a valid learning approximation and converges to $Q^{*}(s,a)$ when we've seen enough data gathered by the best policy we have at the moment, plus some small exploration.
 
+## Continuous State-Action Methods
+
+Each approach above expected to be able to update the value functions at a finite number of state/action pairs. This makes several things possible:
+- sweeping over all state candidates for model-based approaches;
+- computing the (finite) set of next states(actions/rewards) to calculate the right-hand side in update equations;
+- explicit maximization over the available actions for each state.
+For more naturally robotics problems with both continous states and actions, none of these is possible. We can still utilize the Bellman equations to form MDP solving and RL algorithms, but modification is needed.
+
+### The Policy Gradient Theorem
+
+The main element of the previous methods that must be replaced is the ability to implicity extract a policy by maximization over Q. Instead, the Policy Gradients (PG) approach uses calculus to find improvements on an explicit parameterized policy function ${\pi}_{\theta}(a | s)$. This begins by manipulating the definition of the policy value function:
+
+$$\begin{aligned}
+\grad v_{\pi}(s) = \grad \large[ {\Sigma}_a {\pi}_{\theta}(a | s) {q}_{\pi}(s,a)\large]
+\end{aligned}$$
+
+
+
 This concludes our exceptionally brief tour through MDP modeling and RL. It is intended as a companion to the world modeling content that we will beging in the next weeks, sufficient to help you understand the terminology and basic algorithms that will be pair with world model learning to form integrated learning and control systems.
 
 # Exercizes
