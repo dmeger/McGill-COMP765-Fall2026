@@ -98,7 +98,7 @@ The main element of the previous methods that must be replaced is the ability to
 
 $$\begin{aligned}
 \nabla v_{\pi}(s) = \nabla \large[ {\Sigma}_a {\pi}_{\theta}(a | s) {q}_{\pi}(s,a)\large]\\ 
-\sim \Sigma}_s \mu(s) {\Sigma}_a {\nabla}{\pi}_{\theta}(a | s) {q}_{\pi}(s,a)
+\sim {\Sigma}_s \mu(s) {\Sigma}_a {\nabla}{\pi}_{\theta}(a | s) {q}_{\pi}(s,a)
 \end{aligned}$$
 
 These lines hold a few manipulations that push the gradient within the sum and address $\nabla q$ term that appears when applying the chain rule. The proof in Appendix 1 of the [PGT paper](https://proceedings.neurips.cc/paper_files/paper/1999/file/464d828b85b0bed98e80ade0a5c43b0f-Paper.pdf) is helpful reading. While it won't be pleasant to compute $\mu(s)$ exactly for every policy we consider, this result points to sampling as a good candidate for computation, since running the policy $\pi$ live on the system can bring us states that are sampled from $\mu$. This suggests an update like:
