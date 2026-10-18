@@ -1,0 +1,19 @@
+# Model-based RL
+
+The historical starting point for the use of world models is to replaces the unfortunate need for optimal control and policy optimization routines in RL from needing $x'=f(x,u)$ as an input (and in some cases, $c=c(x,u)$). From here on in the course, we will move away from textbook content towards research, and therefore can never cover each and every paper on any point (we will even have to miss many of the important ones). Rather we'll try to pick an informative selection from which we can learn something, and leave it to you (and your favorite AI search tool), to find more examples to read further. Today, we have a selection of papers that build the foundation of modern world modeling for decision making. They range from 1990 to the early 2010's and have been selected because they focus on really formative elements of world modeling, tie in well with our previous formalized concepts and most importantly for today *do not yet rely mostly on deep learning tools*. That means they don't yet show the "can do everything" promise we might expect in 2026, but it's important to look at how things began, and actually these early papers bring up some crucial points of analysis that are often omitted from more mdoern papers that need to dedicate all their pages to discussing large architectures and training data gathering (i.e., we can learn a lot!)
+
+A sensible starting point for most of our learning-focused world modeling today is Dyna, which proposes two modes for solving the RL problem: by dynamic programming (Q-Learning) OR planning via look-ahead using a world model OR mixes of these. These ideas remain really relavant even in modern world models, although the implementations at that time were of very small scale. 
+
+Next, we will look at approaches to replace the fully-known $x'=f(x,u)$ assumption that has come with all of the optimal control approaches we looked at such as LQR and non-linear variants (including PDDP, iLQR). Important transition work examined how to fit small learned models in for the dynamics, where learned parameters are used to approximate the true dynamics $\hat{f}_{\theta} \approx f$. Subsequently, $\hat{f}$ can be used with mostly normal learning routines, except that we now have interesting chances to be aware of the limited fidelity of the model. Early on, the parameters won't be learned precisely. The learned controller may be responsible for gathering new data to help future learning. These are all still relevant considerations and were often tackled most seriously in these early works. 
+
+Hybrid approaches are an interesting intermediate option that use some element of human modeling while acknowledging human modelers have trouble knowing every parameter perfectly. So, they allow some elements, such as higher order terms or noise parameters, to be fitted with data, while core model structure still sticks to what we expect from basic physics. This is an early version of the current push for physically-based inductive biases in world models (or many different descriptions of the same thing: alignment to the real world, generalization, intuitive physical knowledge, etc). 
+
+Reading List for Today:
+- [Dyna](http://www.incompleteideas.net/papers/sutton-92-ISKIT.pdf)
+- Optimal Control with learned models:
+   - [PILCO](https://mlg.eng.cam.ac.uk/pub/pdf/DeiRas11.pdf)
+   - [PDDP](https://papers.neurips.cc/paper_files/paper/2014/hash/b1aca8ec83459c8900d531aeee5caa08-Abstract.html)
+   - [Guided Policy Search](https://proceedings.mlr.press/v28/levine13.html)
+- Hybrid Approaches:
+   - [Apprenticeship Learning for Helicopter Control](https://ai.stanford.edu/~acoates/papers/AbbeelCoatesNg_IJRR2010.pdf)
+   - [GP Control of an Autonomous Blimp](https://aiweb.cs.washington.edu/research/projects/aiweb/media/papers/tmpZw9_LM.pdf)
