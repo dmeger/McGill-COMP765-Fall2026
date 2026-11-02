@@ -1,3 +1,0 @@
-- "Classical" model-based RL
-   - Dreamer v1
-   - [TD-MPC2](https://www.tdmpc2.com/)

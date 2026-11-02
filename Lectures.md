@@ -9,8 +9,8 @@
 | Oct 5  | Quebec Elections - Zoom Make-up Class on RL | (continued from previous)  |
 | Oct 12 | <span style="color:red">No class - Reading Week</span> |  |
 | Oct 19 | Early model-based RL and OC with learned models  | [Early WM Notes](Notes/L5-ModelBasedRL.md)  |
-| Oct 26 | Learning World Models |  |
-| Nov 2  | WM-based Decision Making |  |
+| Oct 26 | Generative Learning | [Generative Model Notes](Notes/L6-GenerativeModels.md) |
+| Nov 2  | Modern WM Survey | [Modern WM Notes](Notes/L7-DeepWorldModels.md) |
 | Nov 9  | Application Study: Visuotactile Dexterous Manipulation |  |
 | Nov 16 | Midterm 2 and Invited Lecture |  |
 | Nov 23 | World Modeling Papers Week 1 |  |
