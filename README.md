@@ -34,7 +34,7 @@ Please see the [lecture list](Lectures) for details and resources.
 - (3) assignments (30%) 
 - (2) in class mid-term exams (20%)
 - (1) paper presentation in class (10%)
-- (1) project report (40%)
+- (1) project report (40%) ([Project Instructions](Documents/COMP765_Project_Description.pdf))
 
 ## Resources and Materials
 We'll follow parts of a few text books, but material from these will be pointed to and extracted into course notes written by the instructor.
